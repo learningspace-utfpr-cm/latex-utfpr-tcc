@@ -1,0 +1,152 @@
+%%%% configuracoes.tex, 2022/05/02, 2.4a
+
+%% ####################################################
+%%
+%% >> Atenção - Leia isso antes de usar esse template<< 
+%%
+%% Esse template foi desenvolvido por professores,  com a intenção de ajudar os alunos com as entregas na biblioteca. Não há uma equipe especializada e dedicada mantendo tal template, mas sim professores trabalhando além das suas funções básicas, que são: ensino, pesquisa e extensão.
+%
+%% Também os mantenedores deste template não são especializados em LaTeX, muito menos em normas da ABNT. Todos que contribuíram com o template fizeram isso visando deixá-lo o mais próximo possível das normas da ABNT e das regras, anseios e expectativas da biblioteca da UTFPR. É muito importante entender que os desenvolvedores do template não têm relação direta com a biblioteca ou com a ABNT. Ou seja, não são os desenvolvedores do template que ditam as regras e normas dos textos que devem ser entregues à biblioteca.
+
+%%É válido informar também, que como não há uma equipe dedicada e especializada, o tempo para colaborar com o template é curto. Desta forma, pode ser que não sejam empregadas as melhores técnicas, métodos e ferramentas para o desenvolvimento do template. Também pode acontecer do template não atender completamente todos os anseios e exigências da ABNT e da biblioteca, pois por exemplo, muitas regras de redação possuem questões interpretativas. Assim, o template sempre estará em contínua evolução e seria extremamente interessante que as pessoas (alunos,  professores,  técnicos e entusiastas) colaborarem com a evolução do template. Toda ajuda será bem vinda! Isso pode ser feito enviando e-mail para os desenvolvedores, desta forma, assim que possível esses vão tentar melhorar o template.
+
+%%O template é apenas mais uma ferramenta para o desenvolvimento de trabalhos para a biblioteca. Todavia, podem existir outros templates LaTeX. Assim como há templates em outros formatos, que não o LaTeX. O mais importante é que qualquer pessoa, utilizando a princípio qualquer ferramenta, pode desenvolver textos que atendem os requisitos da biblioteca apenas estudando, interpretando e seguindo as regras da UTFPR e da ABNT, que estão disponíveis na página Web da instituição. O template é só um facilitador.
+
+%%Por fim,  é necessário entender que infelizmente o ambiente LaTeX pode ser complexo e gerar resultados distintos dependendo do: sistema operacional,  pacotes LaTeX utilizados,  configurações alteradas, editor utilizado, a forma que está sendo redigida textos, figuras,  etc. Assim não há como garantir que o resultado final será o esperado.  Dito tudo isso,  >>UTILIZE ESSE TEMPLATE POR SUA CONTA E RISCO<<. Os desenvolvedores e colaboradores deste template não se responsabilizam pelo resultado do uso deste template e se eximem de qualquer responsabilidade.
+
+%###################################################
+
+%% Pacotes carregados nas classes:
+%%   memoir: abstract, appendix, array, booktabs, ccaption, chngcntr, chngpage, dcolumn, delarray, enumerate, epigraph, framed,
+%%           ifmtarg, ifpdf, index, makeidx, moreverb, needspace, newﬁle, nextpage, parskip, patchcmd, setspace, shortvrb, showidx,
+%%           tabularx, titleref, titling, tocbibind, tocloft, verbatim, verse.
+%%   memoir (similares): crop, fancyhdr, geometry, sidecap, subﬁgure, titlesec.
+%%   abntex2: babel, bookmark, calc, enumitem, ifthen, hyperref, textcase.
+%%   utfprpgtex: abntex2cite, ae, algorithmic, amsmath, backref, breakurl, caption, cmap, color, eepic, epic, epsfig, etoolbox,
+%%               fancyhdr, fix-cm, fontenc, glossaries, graphics, graphicx, helvet, hyphenat, indentfirst, inputenc, lastpage,
+%%               morewrites, nomencl, sfmath, sistyle, substr, times, xtab.
+
+
+%% Pacotes adicionais (\usepackage[options]{package})
+\usepackage{bigdelim, booktabs, colortbl, longtable, multirow}%% Ferramentas para tabelas
+\usepackage{amssymb, amstext, amsthm, icomma}%% Ferramentas para linguagem matemática
+\usepackage{pifont, textcomp, wasysym}%% Símbolos de texto
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{subfig}             % para adicionar figuras lado a lado no texto                    
+\usepackage{pdfpages}           % para adicionar documentos pdf ao trabalho
+\usepackage{xspace}
+
+
+% luiz: primeira letra maiúscula
+% solução 1
+%\usepackage{stringstrings}
+%\newcommand{\firstcap}[1]{\caselower[e]{#1}\capitalize{\thestring}}
+
+% solução 2 - não usei essa
+% \usepackage[utf8]{inputenc}
+% \usepackage{datatool-base}
+% \usepackage{mfirstuc}
+
+% Formatação do título da seção - primeira letra caixa alta e o resto em caixa baixa.
+% \usepackage[explicit]{titlesec}
+% \usepackage{lipsum}
+% \titleformat{\section}{\normalfont}{\thesection}{1em}{\textbf{\firstcap{#1}}} % funciona mas apenas para o título da seção e não para o sumário (a configuração do sumário está mais para baixo
+
+% luiz: define o underline colorido.
+% https://github.com/abntex/abntex2-contrib/blob/master/customizacoes/pucminas/abntex2-pucminas.sty
+% acabei não usando o black e o coloruline da solução do link
+
+\usepackage[normalem]{ulem} % para o underline colorido na seção quaternária
+\renewcommand*{\cftsubsubsectionfont}{\normalfont\uline} % underline no sumário
+\setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\ABNTEXsubsubsectionupperifneeded\uline} %underline no título da subsubsection
+
+% luiz: bibliografia - opções
+
+%% Comandos personalizados (\newcommand{name}[num]{definition})
+\newcommand{\cpp}{\texttt{C$++$}}%% C++
+\newcommand{\latex}{\LaTeX\xspace}%% LaTeX
+\newcommand{\ds}{\displaystyle}%% Tamanho normal das equações
+\newcommand{\bsym}[1]{\boldsymbol{#1}}%% Texto no modo matemático em negrito
+\newcommand{\mr}[1]{\mathrm{#1}}%% Texto no modo matemático normal (não itálico)
+\newcommand{\der}{\mr{d}}%% Operador diferencial
+\newcommand{\deri}[2]{\frac{\der #1}{\der #2}}%% Derivada ordinária
+\newcommand{\derip}[2]{\frac{\partial #1}{\partial #2}}%% Derivada parcial
+\newcommand{\pare}[1]{\left( #1 \right)}%% Parênteses
+\newcommand{\colc}[1]{\left[ #1 \right]}%% Colchetes
+\newcommand{\chav}[1]{\left\lbrace #1 \right\rbrace}%% Chaves
+\newcommand{\sen}{\operatorname{sen}}%% Operador seno
+\newcommand{\senh}{\operatorname{senh}}%% Operador seno hiperbólico
+\newcommand{\tg}{\operatorname{tg}}%% Operador tangente
+\newcommand{\tgh}{\operatorname{tgh}}%% Operador tangente hiperbólico
+\newcommand{\seqref}[1]{Equação~\eqref{#1}}%% Referência de uma única equação
+\newcommand{\meqref}[1]{Equações~\eqref{#1}}%% Referência de múltiplas equações
+\newcommand{\citep}[1]{\cite{#1}}%% Atalho para citação implícita
+\newcommand{\citet}[1]{\citeonline{#1}}%% Atalho para citação explícita
+\newcommand{\citepa}[1]{(\citeauthor{#1})}%% Atalho para citação implícita (somente autor)
+\newcommand{\citeta}[1]{\citeauthoronline{#1}}%% Atalho para citação explícita (somente autor)
+\newcommand{\citepy}[1]{(\citeyear{#1})}%% Atalho para citação implícita (somente ano)
+\newcommand{\citety}[1]{\citeyear{#1}}%% Atalho para citação explícita (somente ano)
+
+\newcommand{\fonteTexto}[1]{\renewcommand{\familydefault}{#1}}
+
+% Define o caminho das figuras
+\graphicspath{{figuras/}}
+
+% Define a fonte ara helvet que é uma fonte similar à Arial, se for usar a Arial tem que mudar o compilador para XeLaTex, mas ai tem que arrumar os erros: https://latex.org/forum/viewtopic.php?t=25998
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{times} % para fonte time new roman
+%\usepackage{pslatex} % ou essa aqui...
+
+%\usepackage{titlesec}
+
+%% Configuração de glossário
+% \usepackage[portuguese]{nomencl}
+% \usepackage[nogroupskip,nonumberlist,nopostdot,nohypertypes={acronym}]{glossaries}
+% \makenoidxglossaries
+\usepackage{glossaries}
+\makeglossaries
+
+% para siglas em português
+\newcommand{\siglaPt}[2]
+{
+ \newglossaryentry{#1}{
+  name=#1,
+  description={#2},
+  first={#2 (#1)},
+  long={#2}
+ }  
+}
+
+% para siglas de língua estrangeira, nessas a descrição longa fica em itálico.
+\newcommand{\siglaIt}[2]
+{
+ \newglossaryentry{#1}{
+  name=#1,
+  description={\textit{#2}},
+  first={\textit{#2} ({#1})},
+  long={\textit{#2}}
+ }  
+}
+
+%% luiz - para fazer os avisos
+\usepackage{tcolorbox}
+
+% use para criar caixas de avisos, pode ser utilizado para fazer anotações de tarefas indicadas pelo orientador/banca.
+% \caixa{Atenção}{texto...}
+\newcommand{\caixa}[2]{
+\begin{tcolorbox}[colback=red!5!white,colframe=red!45!white, title = #1, fonttitle=\bfseries]
+#2
+\end{tcolorbox}
+}
+
+% Luiz - Linhas órfãs e viúvas
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Luiz - Caption do tamanho da Tabela
+%\usepackage[width=1\textwidth]{caption}
+
+% Luiz - configurar a margem dos itens
+\setlength{\leftmargini}{1.5cm}
+\setlength{\leftmarginii}{1.5cm}

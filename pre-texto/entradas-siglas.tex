@@ -1,0 +1,38 @@
+%%%% LISTA DE ABREVIATURAS E SIGLAS 
+%%
+%% Relação, em ordem alfabética, das abreviaturas (representação de uma palavra por meio de alguma(s) de sua(s) sílaba(s) ou
+%% letra(s)), siglas (conjunto de letras iniciais dos vocábulos e/ou números que representa um determinado nome) e acrônimos
+%% (conjunto de letras iniciais dos vocábulos e/ou números que representa um determinado nome, formando uma palavra pronunciável).
+%%
+%% Este arquivo para definição de abreviaturas, siglas e acrônimos é utilizado com a opção "glossaries" (pacote)
+
+%% Abreviaturas: \abreviatura{rótulo}{representação}{definição}
+
+\abreviatura{art.}{art.}{Artigo}
+\abreviatura{cap.}{cap.}{Capítulo}
+\abreviatura{sec.}{sec.}{Seção}
+
+%% Siglas: \sigla{rótulo}{representação}{definição}
+
+\sigla{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
+\sigla{cnpq}{CNPq}{Conselho Nacional de Desenvolvimento Científico e Tecnológico}
+\sigla{eps}{EPS}{\textit{Encapsulated PostScript}}
+\sigla{pdf}{PDF}{Formato de Documento Portátil, do inglês \textit{Portable Document Format}}
+\sigla{ps}{PS}{\textit{PostScript}}
+\sigla{utfpr}{UTFPR}{Universidade Tecnológica Federal do Paraná}
+
+
+%% LEIA:
+
+%% Para usar o \gls, você deve colocar a sigla aqui em \sigla
+
+%% ADICIONAR SIGLAS: Quando você inclui alguma sigla, pode ser necessário compilar umas duas vezes para essa aparecer na lista de siglas.
+
+%% ATENÇÃO REMOVER SIGLAS: se você remover a sigla do seu texto (não for usar mais), você deve comentar essa aqui e remover os \gls{} dessa sigla (se não vai ficar aparecendo a sigla na lista). Em caso de ERRO, quando o LaTeX informa que você ainda tem a sigla no texto, mesmo que não tenha. Você deve limpar o cache - no OverLeaf, clique no erro, vá:
+%  ->view error
+%%   ->(role para baixo, até o final)
+%%     ->e clique em Clear cached files
+
+
+%% Acrônimos: \acronimo{rótulo}{representação}{definição}
+%\acronimo{gimp}{Gimp}{Programa de Manipulação de Imagem GNU, do inglês \textit{GNU Image Manipulation Program}}

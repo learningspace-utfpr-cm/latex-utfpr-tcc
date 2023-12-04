@@ -511,9 +511,9 @@
 \let\newtextual\textual%% Elementos textuais
 \let\newpretextual\pretextual%% Elementos pré-textuais
 \if@twoside%% Estilo de impressão para elementos textuais e pós-textuais (anverso e verso)
-  \renewcommand{\textual}{\setboolean{@twoside}{true}\newtextual}%% Redefinição dos elementos textuais
+  \renewcommand{\textual}{\setboolean{@twoside}{true}\glsresetall\newtextual}%% Redefinição dos elementos textuais
 \else%% Estilo de impressão para elementos textuais e pós-textuais (anverso)
-  \renewcommand{\textual}{\setboolean{@twoside}{false}\newtextual}%% Redefinição dos elementos textuais
+  \renewcommand{\textual}{\setboolean{@twoside}{false}\glsresetall\newtextual}%% Redefinição dos elementos textuais
 \fi
 \if@pretexttwoside%% Estilo de impressão para elementos pré-textuais (anverso e verso)
   \renewcommand{\pretextual}{\setboolean{@twoside}{true}\newpretextual}%% Redefinição dos elementos pré-textuais

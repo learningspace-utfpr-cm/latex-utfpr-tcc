@@ -759,8 +759,20 @@
 \newcommand{\licencaCCTabela}[4]{
     \begin{tabular}[t]{@{}p{#3}@{}p{13.2cm}@{}}
         \setstretch{.8}
-        \centering \includegraphics[scale=0.6]{./dados-modelo/creative-commons/#1} & \multirow{2}{*}{\setstretch{.9} \small \begin{tabular}{p{13.2cm}}\vspace{-1.2cm}#2\end{tabular}} \\
-        \centering \vspace{-0.7cm} \href{#4}{~\textcolor{blue}{\small\underline{4.0 Internacional}}} &
+        \centering
+        \includegraphics[scale=0.6]{./dados-modelo/creative-commons/#1}
+        &
+        \multirow{2}{*}{%
+            \setstretch{.9}
+            \small
+            \begin{tabular}{p{13.2cm}}
+                \vspace{-1.2cm}#2
+            \end{tabular}}
+        \\
+        \centering
+        \vspace{-0.7cm}
+        \href{#4}{~\textcolor{blue}{\small\underline{4.0 Internacional}}}
+        &
     \end{tabular}
 }
 % luiz: old

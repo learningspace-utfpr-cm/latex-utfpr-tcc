@@ -180,7 +180,7 @@
   \citeoption{abnt-etal-cite=2}
   \citeoption{abnt-etal-list=0}
   \citeoption{abnt-etal-text=it}
-  \citeoption{abnt-full-initials=no}
+  \citeoption{abnt-full-initials=yes}
   \citeoption{abnt-repeated-title-omit=no}
   \citeoption{abnt-thesis-year=both}
   \citeoption{abnt-url-package=url}

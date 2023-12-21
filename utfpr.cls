@@ -467,13 +467,6 @@
   \ifthenelse{\imprimirnumerodepalavraschave > 0}%% Ponto final
     {\newcommand{\pdfkeywordfinalpoint}{.}}%%
     {\newcommand{\pdfkeywordfinalpoint}{}}%%
-  % Luiz: pdfa: comentado para remover os warnnings do pdfa - ficava duplicado
-  %\hypersetup{%% Propriedades do documento do arquivo pdf
-  %  pdftitle={\@title},%% Título
-  %  pdfauthor={\@author},%% Autor
-  %  pdfsubject={\imprimirtipodedocumento} de {\imprimirniveldeformacao},%% Descrição
-  %  pdfkeywords={{\pdfkeyworda}{\pdfkeywordb}{\pdfkeywordc}{\pdfkeywordd}{\pdfkeyworde}{\pdfkeywordfinalpoint}},%% Palavras-chave
-  %}
 }
 
 %% Configuração de fontes
@@ -521,9 +514,6 @@
 \else%% Estilo de impressão para elementos pré-textuais (anverso)
   \renewcommand{\pretextual}{\setboolean{@twoside}{false}\newpretextual}%% Redefinição dos elementos pré-textuais
 \fi
-
-%% tamanho fonte do número de páginas
-% \renewcommand{\footnotesize}{\small}
 
 %% Formatação e espaçamentos nas páginas
 \newgeometry{%
@@ -1248,7 +1238,7 @@
 \newglossary[alg3]{\abbreviationtype}{acr3}{acn3}{\nomeabreviaturas}%% Subtipo de glossário (abreviaturas)
 \newcommand{\imprimirlistadeacronimos}{%% Definição do comando para inclusão da lista de abreviaturas, siglas e acrônimos
   \newglossarystyle{myxtab}{%% Estilo de glossário personalizado
-    \glossarystyle{long}%% Estilo de glossário base
+    \setglossarystyle{long}%% Estilo de glossário base
     \renewcommand*{\glossaryheader}{}%% Conteúdo do cabeçalho do glossário
     \renewcommand*{\glsgroupheading}[1]{}%% Conteúdo do cabeçalho de itens no glossário
     \renewcommand*{\glsgroupskip}{}%% Espaçamento entre itens

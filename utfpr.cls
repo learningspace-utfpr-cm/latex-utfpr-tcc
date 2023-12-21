@@ -962,7 +962,7 @@
 }
 \newenvironment{resumoutfpr}{%% Formatação do ambiente resumoutfpr
   \begin{resumo}%% Ambiente resumo
-    \begin{Spacing}{1.5}%% Espaçamento simples entre linhas
+    \begin{Spacing}{1.0}%% Espaçamento simples entre linhas
       \begin{flushleft}%% Alinhamento à esquerda
       \end{flushleft}
       %\singlespacing
@@ -982,7 +982,7 @@
 %% Abstract
 \newenvironment{abstractutfpr}{%% Formatação do ambiente abstractutfpr
   \begin{resumo}[\nomeabstract]%% Ambiente resumo (abstract)
-    \begin{Spacing}{1.5}%% Espaçamento simples entre linhas
+    \begin{Spacing}{1.0}%% Espaçamento simples entre linhas
       \begin{flushleft}%% Alinhamento à esquerda
       \end{flushleft}
       %\singlespacing

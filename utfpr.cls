@@ -184,6 +184,7 @@
   \citeoption{abnt-repeated-title-omit=no}
   \citeoption{abnt-thesis-year=both}
   \citeoption{abnt-url-package=url}
+  \citeoption{abnt-doi=doi}
   \def\UrlLeft{}
   \def\UrlRight{}
   \urlstyle{same}

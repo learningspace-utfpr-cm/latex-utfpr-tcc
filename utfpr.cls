@@ -643,6 +643,9 @@
 \def\course#1{\gdef\@course{#1}}%
 \def\@course{\@latex@error{No \noexpand\course given}\@ehc}%
 
+\def\courseen#1{\gdef\@courseen{#1}}%
+\def\@courseen{\@latex@warning{No \noexpand\courseen given}\@ehc}%
+
 \def\depositshortdate#1{\gdef\@depositshortdate{#1}}%
 \def\@depositshortdate{\@latex@error{No \noexpand\depositshortdate given}\@ehc}%
 
@@ -657,8 +660,14 @@
 \def\goal#1{\gdef\@goal{#1}}%
 \def\@goal{\@latex@error{No \noexpand\goal given}\@ehc}%
 
+\def\goalen#1{\gdef\@goalen{#1}}%
+\def\@goalen{\@latex@warning{No \noexpand\goalen given}\@ehc}%
+
 \def\degree#1{\gdef\@degree{#1}}%
 \def\@degree{\@latex@error{No \noexpand\degree given}\@ehc}%
+
+\def\degreeen#1{\gdef\@degreeen{#1}}%
+\def\@degreeen{\@latex@warning{No \noexpand\degreeen given}\@ehc}%
 
 \def\degreetype#1{\gdef\@degreetype{#1}}%
 \def\@degreetype{\@latex@error{No \noexpand\degreetype given}\@ehc}%
@@ -671,6 +680,9 @@
 
 \def\degreearea#1{\gdef\@degreearea{#1}}%
 \def\@degreearea{\@latex@error{No \noexpand\degreearea given}\@ehc}%
+
+\def\degreeareaen#1{\gdef\@degreeareaen{#1}}%
+\def\@degreeareaen{\@latex@warning{No \noexpand\degreeareaen given}\@ehc}%
 
 \newcommand{\advisorlabel}{Orientador}
 \newcommand{\coadvisorlabel}{Coorientador}
@@ -686,7 +698,8 @@
 			\large\textbf{\allcaps{\@university}}\\
 			% \large\allcaps{\@universitycampus}\\
 			% \large\allcaps{\@universityunit}\\
-			\large\allcaps{\@program}\par	
+			\ifthenelse{\equal{Mestrado}{\degree{}}}{\large\allcaps{\@program}}
+            \par	
 		}
 		%\vspace{56pt}
 		\vspace{45mm}
@@ -725,11 +738,14 @@
 }
 
 \renewcommand{\@goalfulltext}{
-%	\@goal{} apresentado à disciplina de \@course, do \@program{} do \@universityunit{}
-%	da \@university{}, como requisito parcial para obtenção do título de \@degree{}
-%	em \@degreearea{}.
-	\@goal{} apresentado como requisito para obtenção do título de \@degree{}
-	em \@degreearea{} do \@program{} da \@university{}.
+    \ifthenelse{\equal{Mestrado}{\degree{}}}{
+    	\@goal{} apresentado como requisito para obtenção do título de \@degree{}
+        em \@degreearea{} do \@program{} da \@university{}.
+    }{
+    	\@goal{} apresentado à disciplina de \@course, do \@program{} do \@universityunit{}
+        da \@university{}, como requisito parcial para obtenção do título de \@degree{}
+        em \@degreearea{}.
+    }
 }
 
 % Creative Commons

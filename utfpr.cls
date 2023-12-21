@@ -428,17 +428,17 @@
 \newcommand{\MesPorExtenso}[1]{\providecommand{\imprimirmesporextenso}{#1}}%% Mês por extenso
 \newcommand{\Ano}[1]{\providecommand{\imprimirano}{#1}}%% Ano com quatro dígitos
 \newcommand{\NumeroDePalavrasChave}[1]{\providecommand{\imprimirnumerodepalavraschave}{#1}}%% Número de palavras-chave (máximo 5)
-\newcommand{\PalavraChaveA}[1]{\providecommand{\imprimirpalavrachavea}{\lowercase{#1}}}%% Palavra-chave A
-\newcommand{\PalavraChaveB}[1]{\providecommand{\imprimirpalavrachaveb}{\lowercase{{#1}}}}%% Palavra-chave B
-\newcommand{\PalavraChaveC}[1]{\providecommand{\imprimirpalavrachavec}{\lowercase{#1}}}%% Palavra-chave C
-\newcommand{\PalavraChaveD}[1]{\providecommand{\imprimirpalavrachaved}{\lowercase{#1}}}%% Palavra-chave D
-\newcommand{\PalavraChaveE}[1]{\providecommand{\imprimirpalavrachavee}{\lowercase{#1}}}%% Palavra-chave E
+\newcommand{\PalavraChaveA}[1]{\providecommand{\imprimirpalavrachavea}{#1}}%% Palavra-chave A
+\newcommand{\PalavraChaveB}[1]{\providecommand{\imprimirpalavrachaveb}{#1}}%% Palavra-chave B
+\newcommand{\PalavraChaveC}[1]{\providecommand{\imprimirpalavrachavec}{#1}}%% Palavra-chave C
+\newcommand{\PalavraChaveD}[1]{\providecommand{\imprimirpalavrachaved}{#1}}%% Palavra-chave D
+\newcommand{\PalavraChaveE}[1]{\providecommand{\imprimirpalavrachavee}{#1}}%% Palavra-chave E
 \newcommand{\NumeroDeKeywords}[1]{\providecommand{\imprimirnumerodekeywords}{#1}}%% Número de keywords (máximo 5)
-\newcommand{\KeywordA}[1]{\providecommand{\imprimirkeyworda}{\lowercase{#1}}}%% Keyword A
-\newcommand{\KeywordB}[1]{\providecommand{\imprimirkeywordb}{\lowercase{#1}}}%% Keyword B
-\newcommand{\KeywordC}[1]{\providecommand{\imprimirkeywordc}{\lowercase{#1}}}%% Keyword C
-\newcommand{\KeywordD}[1]{\providecommand{\imprimirkeywordd}{\lowercase{#1}}}%% Keyword D
-\newcommand{\KeywordE}[1]{\providecommand{\imprimirkeyworde}{\lowercase{#1}}}%% Keyword E
+\newcommand{\KeywordA}[1]{\providecommand{\imprimirkeyworda}{#1}}%% Keyword A
+\newcommand{\KeywordB}[1]{\providecommand{\imprimirkeywordb}{#1}}%% Keyword B
+\newcommand{\KeywordC}[1]{\providecommand{\imprimirkeywordc}{#1}}%% Keyword C
+\newcommand{\KeywordD}[1]{\providecommand{\imprimirkeywordd}{#1}}%% Keyword D
+\newcommand{\KeywordE}[1]{\providecommand{\imprimirkeyworde}{#1}}%% Keyword E
 \newcommand{\imprimirppgoudepartamento}{%% Programa de pós-graduação ou departamento
   \ifthenelse{\equal{\imprimirtipodedocumento}{Tese}\or\equal{\imprimirtipodedocumento}{Dissertação}}%% Tese ou dissertação
   {Programa de Pós-Graduação em \imprimircurso}%% Programa de pós-graduação

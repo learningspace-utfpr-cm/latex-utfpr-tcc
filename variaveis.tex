@@ -40,9 +40,7 @@
 
 %% Documento
 %% Luiz: Define a fonte do texto da monografia
-\fonteTexto{\sfdefault} % utilize \rmdefault para Times New Roman ou \sfdefault para Arial
-\TipoDeDocumento{Trabalho de Conclusão de Curso de Graduação}%% Tipo de documento: "Tese", "Dissertação" ou "Trabalho de Conclusão de Curso de Graduação", "Estágio Supervisionado"
-\NivelDeFormacao{Bacharelado}%% Nível de formação: "Doutorado", "Mestrado", "Bacharelado" ou "Tecnólogo" - ATENÇÃO, isso será utilizado para alterar a formatação do trabalho, pois pode haver formatações distintas dependendo o nível/tipo de trabalho.
+\fonteTexto{\rmdefault} % utilize \rmdefault para Times New Roman ou \sfdefault para Arial
 
 
 %% luiz
@@ -56,26 +54,16 @@
 % Esta licença permite que outros distribuam, remixem, adaptem e criem a partir deste trabalho, mesmo para fins comerciais, desde que atribuam o devido crédito pela criação original.
 % https://creativecommons.org/licenses/by/4.0/deed.pt_BR
 
-% Dados do curso. Caso seja BCC:
-\program{Curso de Bacharelado em Ciência da Computação}
-\programen{Undergradute Program in Computer Science}
-\degree{Bacharel}
-\degreearea{Ciência da Computação}
-% Caso seja TSI:
-% \program{Curso Superior de Tecnologia em Sistemas para Internet}
-% \programen{Undergradute Program in Tecnology for Internet Systems}
-% \degree{Tecnólogo}
-% \degreearea{Tecnologia em Sistemas para Internet}
-
+% Dados do curso
+\input{dados-modelo/tipos-trabalho/utfpr-bcc-cm}
 
 % Dados da disciplina. Escolha uma das opções e a descomente:
 % TCC1:
 %\goal{Proposta de Trabalho de Conclusão de Curso de Graduação}
 %\course{Trabalho de Conclusão de Curso 1}
 % TCC2:
- \goal{Trabalho de Conclusão de Curso de Graduação}
- \course{Trabalho de Conclusão de Curso 2}
-
+\goal{Trabalho de Conclusão de Curso de Graduação}
+\course{Trabalho de Conclusão de Curso 2}
 
 % Dados do TCC (precisa alterar)
 \author{Coloque o nome completo do(a) autor(a) aqui}  % Seu nome
@@ -89,16 +77,6 @@
 \depositshortdate{ANO} % Ano em que depositou este documento
 \approvaldate{01/janeiro/2021}
 
-% Dados do curso que não precisam de alteração
-\university{Universidade Tecnológica Federal do Paraná}
-\universityen{Federal University of Technology -- Paraná}
-\universitycampus{Campus Campo Mourão}
-\universityunit{Departamento Acadêmico de Computação}
-\address{CIDADE}
-\addressen{Campo Mourão, PR, Brazil}
-\documenttype{Monografia}
-\documenttypeen{Monograph}
-\degreetype{Graduação}
 
 \evalboardmember{Nome completo e por extenso do Membro 1}{Título (especialização, mestrado, doutorado}{Nome completo e por extenso da instituição a qual possui vínculo}
 \evalboardmember{Nome completo e por extenso do Membro 2}{Título (especialização, mestrado, doutorado}{Nome completo e por extenso da instituição a qual possui vínculo}

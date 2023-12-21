@@ -1,54 +1,3 @@
-%%%% main.tex, 2022/08/10, 2.5
-%%%% Copyright (C) 2020 Vinicius Pegorini (vinicius@utfpr.edu.br)
-%%
-%% This work may be distributed and/or modified under the conditions of the
-%% LaTeX Project Public License, either version 1.3 of this license or (at your
-%% option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX version
-%% 2005/12/01 or later.
-%%
-%% This work has the LPPL maintenance status `maintained'.
-%%
-%% The Current Maintainer of this work is Vinicius Pegorini.
-%%
-%% This work consists of the files utfprpb.cls, utfprpb.tex, and
-%% utfprpb-dados.tex.
-%%
-%% The Current Maintainer of this work is Vinicius Pegorini.
-%% Updated by:
-%% - Marco Aurélio Graciotto Silva;
-%% - Rogério Aparecido Gonçalves;
-%% - Luiz Arthur Feitosa dos Santos.
-%%
-%% This work consists of the files utfpr.cls, main.tex, and
-%% variaveis.tex.
-%% A brief description of this work is in readme.md.
-
-%% ####################################################
-%%
-%% >> Atenção - Leia isso antes de usar esse template<< 
-%%
-%% Esse template foi desenvolvido por professores,  com a intenção de ajudar os alunos com as entregas na biblioteca. Não há uma equipe especializada e dedicada mantendo tal template, mas sim professores trabalhando além das suas funções básicas, que são: ensino, pesquisa e extensão.
-%
-%% Também os mantenedores deste template não são especializados em LaTeX, muito menos em normas da ABNT. Todos que contribuíram com o template fizeram isso visando deixá-lo o mais próximo possível das normas da ABNT e das regras, anseios e expectativas da biblioteca da UTFPR. É muito importante entender que os desenvolvedores do template não têm relação direta com a biblioteca ou com a ABNT. Ou seja, não são os desenvolvedores do template que ditam as regras e normas dos textos que devem ser entregues à biblioteca.
-
-%%É válido informar também, que como não há uma equipe dedicada e especializada, o tempo para colaborar com o template é curto. Desta forma, pode ser que não sejam empregadas as melhores técnicas, métodos e ferramentas para o desenvolvimento do template. Também pode acontecer do template não atender completamente todos os anseios e exigências da ABNT e da biblioteca, pois por exemplo, muitas regras de redação possuem questões interpretativas. Assim, o template sempre estará em contínua evolução e seria extremamente interessante que as pessoas (alunos,  professores,  técnicos e entusiastas) colaborarem com a evolução do template. Toda ajuda será bem vinda! Isso pode ser feito enviando e-mail para os desenvolvedores, desta forma, assim que possível esses vão tentar melhorar o template.
-
-%%O template é apenas mais uma ferramenta para o desenvolvimento de trabalhos para a biblioteca. Todavia, podem existir outros templates LaTeX. Assim como há templates em outros formatos, que não o LaTeX. O mais importante é que qualquer pessoa, utilizando a princípio qualquer ferramenta, pode desenvolver textos que atendem os requisitos da biblioteca apenas estudando, interpretando e seguindo as regras da UTFPR e da ABNT, que estão disponíveis na página Web da instituição. O template é só um facilitador.
-
-%%Por fim,  é necessário entender que infelizmente o ambiente LaTeX pode ser complexo e gerar resultados distintos dependendo do: sistema operacional,  pacotes LaTeX utilizados,  configurações alteradas, editor utilizado, a forma que está sendo redigida textos, figuras,  etc. Assim não há como garantir que o resultado final será o esperado.  Dito tudo isso,  >>UTILIZE ESSE TEMPLATE POR SUA CONTA E RISCO<<. Os desenvolvedores e colaboradores deste template não se responsabilizam pelo resultado do uso deste template e se eximem de qualquer responsabilidade.
-
-%###################################################
-
-
-% Luiz - pdfa: inclusão do pdfa
-\PassOptionsToPackage{
-	pdfa
-}{hyperref}
-
-%% Classe e opções de documento
 \documentclass[%% Opções
 %% -- Opções da classe memoir --
   12pt,%% Tamanho da fonte: 10pt, 11pt, 12pt, etc.
@@ -76,16 +25,15 @@
   % linhasdeassinaturas,%% Linhas de assinaturas na folha de aprovação (comente para remover as linhas)
 %% -- Opções do pacote babel --
   english,%% Idioma adicional para hifenização
-  french,%% Idioma adicional para hifenização
-  spanish,%% Idioma adicional para hifenização
   brazil,%% Idioma principal do documento (último da lista)
 ]{utfpr}%% Classe utfpr
 
-% Luiz: pdfa: necessário para criar pdfa
-\usepackage[a-3b,mathxmp]{pdfx} % você pode escolher entre a-1b, a-2b, a-3b - o template ainda não suporta o a-Xa de 
-% Depois confira a validação em https://www.pdf2go.com/validate-pdfa
+% Este comando não tem função (o modelo já configura a codificação). Ele existe
+% apenas para permitir que latex2rtf descobra facilmente a codificação do texto.
+%
+\usepackage[utf8]{inputenc}
 
-\input{configuracoes}
+\usepackage{configuracoes}
 
 %% Arquivo de dados do modelo de documento LaTeX para produção de trabalhos acadêmicos da UTFPR
 \input{./variaveis}%% Realize as modificações pertinentes no arquivo "utfprpb-dados.tex"
@@ -104,63 +52,51 @@
 %% Início do documento
 \begin{document}%% Não comente esta linha
 
-%% Formatação de páginas de elementos pré-textuais
-\pretextual%% Não comente esta linha
+% Início da parte pré-texto (obrigatório)
+\pretextual
 
-%% Capa
-%\incluircapa%% Comente para remover este item
+% Capa, contra-capa (obrigatórios)
 \coverpageone
-
-%% Folha de rosto (* coloca a ficha bibliográfica no verso)
-%\incluirfolhaderosto*%% Comente para remover este item
 \coverpagetwo
 
-%% Ficha catalográfica (teses e dissertações)
-%\incluirfichacatalografica%% Comente para remover este item
-
-%% Errata
-%\include{./pre-texto/errata}%% Comente para remover este item
-
-%% Folha de aprovação
-%\incluirfolhaaprovacao
+% Folha de aprovação
 \approvalpage
-%\incluirfolhadeaprovacao%% Para adicionar no formato de texto
 %\includepdf[scale=1.0,pages=1]{./pre-texto/folha-aprovacao.pdf} % para adicionar o pdf enviado pelo professor apenas substitua o documento folha-aprovacao.pdf dentro da pasta PreTexto
 
-%% Dedicatória
+% Dedicatória (opcional)
 \include{./pre-texto/dedicatoria}%% Comente para remover este item
 
-%% Agradecimentos
+% Agradecimentos (opcional)
 \include{./pre-texto/agradecimentos}%% Comente para remover este item
 
-%% Epígrafe
+% Epígrafe
 \include{./pre-texto/epigrafe}%% Comente para remover este item
 
-%% Resumo
+% Resumo
 \include{./pre-texto/resumo}%% Comente para remover este item
 
-%% Abstract
+% Abstract
 \include{./pre-texto/abstract}%% Comente para remover este item
 
 %% Lista de algoritmos
 %\incluirlistadealgoritmos%% Comente para remover este item
 
-%% Lista de ilustrações
-\incluirlistadeilustracoes%% Comente para remover este item
+% Lista de ilustrações (obrigatório, mas será mostrada apenas se existirem ilustrações)
+\incluirlistadeilustracoes
 
-%% Lista de Fotografias
-\incluirlistadefotografias %% Comente para remover este item
+%% Lista de fotografias (obrigatório, mas será mostrada apenas se existirem fotografias)
+\incluirlistadefotografias
 
-%% Lista de Gráficos
+%% Lista de gráficos (obrigatório, mas será mostrada apenas se existirem gráficos)
 \incluirlistadegraficos %% Comente para remover este item
 
-%% Lista de tabelas
+% Lista de tabelas (obrigatório, mas será mostrada apenas se existirem tabelas)
 \incluirlistadetabelas%% Comente para remover este item
 
-%% Lista de quadros
+%% Lista de quadros (obrigatório, mas será mostrada apenas se existirem quadros)
 \incluirlistadequadros
 
-%% Listagem de códigos fonte
+%% Listagem de códigos fonte (obrigatório, mas será mostrada apenas se existirem quadros)
 \incluirlistadecodigosfonte
 
 %% Lista de abreviaturas, siglas e acrônimos
@@ -169,12 +105,11 @@
 %% Lista de símbolos
 \incluirlistadesimbolos{nomencl}%% Opções: "nomencl" (pacote) ou "file" (arquivo) ou "none" (desabilita)
 
-%% Sumário
-\incluirsumario%% Comente para remover este item
+% Sumário (obrigatório)
+\incluirsumario
 
-%% Formatação de páginas de elementos textuais
-\textual%% Não comente esta linha
-
+% Início do corpo principal do documento (obrigatório)
+\textual
 
 %% Capítulo introdução - obrigatório
 \include{./main/1-introducao}%% Comente para remover este item
@@ -198,46 +133,31 @@
 % \phantompart%% Comente para remover este item
 
 
-%% Formatação de páginas de elementos pós-textuais
-\postextual%% Não comente esta linha
+% Início da parte posterior ao texto principal (obrigatório)
+\postextual
 
-%% Arquivos de referências
-\arquivosdereferencias{%% Arquivos bibtex sem a extensão .bib e separados por vírgula - Não comente esta linha
-  %./PosTexto/exemplos-referencias,%% Arquivo de referências - Comente para remover este item
-  main,main-crossrefs%% Arquivo de referências - Comente para remover este item
-}%% Não comente esta linha
+% Arquivos bibtex sem a extensão .bib e separados por vírgula (obrigatório)
+\arquivosdereferencias{main,crossrefs}
 
-%% Glossário
-%\incluirglossario %% Comente para remover este item
+% Glossário (opcional)
+% \incluirglossario
 
-%% Arquivos de apêndices
- \begin{arquivosdeapendices}%% Os arquivos de apêndices devem se incluídos neste ambiente - Não comente esta linha
-%   %\partapendices%% Página de início dos apêndices - adiciona uma página com o título Apêndices
-%   %% Capítulo de exemplo
-   \include{./pos-texto/apendicea}%% Apêndice - Comente para remover este item
-   \include{./pos-texto/apendiceb}%% Apêndice - Comente para remover este item
- \end{arquivosdeapendices}%% Não comente esta linha
+% Apêndices (opcional)
+\begin{arquivosdeapendices}
+    % \partapendices%% Página de início dos apêndices - adiciona uma página com o título Apêndices
+    % \include{./pos-texto/apendicea}
+    % \include{./pos-texto/apendiceb}
+\end{arquivosdeapendices}%% Não comente esta linha
 
-
-% \begin{apendicesenv}%% Ambiente apendicesenv
-
-% \partapendices
-% \chapter{Ola}
-
-% \lipsum[55-56]
-
-% \end{apendicesenv}
-
-%% Arquivos de anexos
-\begin{arquivosdeanexos}%% Os arquivos de anexos devem se incluídos neste ambiente - Não comente esta linha
-  %\partanexos%% Página de início dos anexos - adiciona uma página com o título Anexos
-
-  \include{./pos-texto/anexoa}%% Anexo - Comente para remover este item
-  \include{./pos-texto/anexob}%% Anexo - Comente para remover este item
+% Anexos (opcional)
+\begin{arquivosdeanexos}
+    % \partanexos%% Página de início dos anexos - adiciona uma página com o título Anexos
+    % \include{./pos-texto/anexob}
+    % \include{./pos-texto/anexob}
 \end{arquivosdeanexos}%% Não comente esta linha
 
-%% Índice - Adiciona um índice remissivo.
-%\incluirindice%% Comente para remover este item
+% Índice remissivo (opcional)
+% \incluirindice
 
-%% Fim do documento
-\end{document}%% Não comente esta linha
+% Fim do documento (obrigatório)
+\end{document}

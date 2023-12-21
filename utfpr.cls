@@ -1,49 +1,12 @@
-%%%% utfpr.cls, 2022/08/10, 2.5
-%%%% Copyright (C) 2020 Vinicius Pegorini (vinicius@utfpr.edu.br)
-%%
-%% This work may be distributed and/or modified under the conditions of the
-%% LaTeX Project Public License, either version 1.3 of this license or (at your
-%% option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX version
-%% 2005/12/01 or later.
-%%
-%% This work has the LPPL maintenance status `maintained'.
-%%
-%% The Current Maintainer of this work is Vinicius Pegorini.
-%% Updated by:
-%% - Marco Aurélio Graciotto Silva;
-%% - Rogério Aparecido Gonçalves;
-%% - Luiz Arthur Feitosa dos Santos.
-%%
-%% This work consists of the files utfpr.cls, main.tex, and
-%% variaveis.tex.
-%%
-%% A brief description of this work is in readme.md.
-
-%% ####################################################
-%%
-%% >> Atenção - Leia isso antes de usar esse template<< 
-%%
-%% Esse template foi desenvolvido por professores,  com a intenção de ajudar os alunos com as entregas na biblioteca. Não há uma equipe especializada e dedicada mantendo tal template, mas sim professores trabalhando além das suas funções básicas, que são: ensino, pesquisa e extensão.
-%
-%% Também os mantenedores deste template não são especializados em LaTeX, muito menos em normas da ABNT. Todos que contribuíram com o template fizeram isso visando deixá-lo o mais próximo possível das normas da ABNT e das regras, anseios e expectativas da biblioteca da UTFPR. É muito importante entender que os desenvolvedores do template não têm relação direta com a biblioteca ou com a ABNT. Ou seja, não são os desenvolvedores do template que ditam as regras e normas dos textos que devem ser entregues à biblioteca.
-
-%%É válido informar também, que como não há uma equipe dedicada e especializada, o tempo para colaborar com o template é curto. Desta forma, pode ser que não sejam empregadas as melhores técnicas, métodos e ferramentas para o desenvolvimento do template. Também pode acontecer do template não atender completamente todos os anseios e exigências da ABNT e da biblioteca, pois por exemplo, muitas regras de redação possuem questões interpretativas. Assim, o template sempre estará em contínua evolução e seria extremamente interessante que as pessoas (alunos,  professores,  técnicos e entusiastas) colaborarem com a evolução do template. Toda ajuda será bem vinda! Isso pode ser feito enviando e-mail para os desenvolvedores, desta forma, assim que possível esses vão tentar melhorar o template.
-
-%%O template é apenas mais uma ferramenta para o desenvolvimento de trabalhos para a biblioteca. Todavia, podem existir outros templates LaTeX. Assim como há templates em outros formatos, que não o LaTeX. O mais importante é que qualquer pessoa, utilizando a princípio qualquer ferramenta, pode desenvolver textos que atendem os requisitos da biblioteca apenas estudando, interpretando e seguindo as regras da UTFPR e da ABNT, que estão disponíveis na página Web da instituição. O template é só um facilitador.
-
-%%Por fim,  é necessário entender que infelizmente o ambiente LaTeX pode ser complexo e gerar resultados distintos dependendo do: sistema operacional,  pacotes LaTeX utilizados,  configurações alteradas, editor utilizado, a forma que está sendo redigida textos, figuras,  etc. Assim não há como garantir que o resultado final será o esperado.  Dito tudo isso,  >>UTILIZE ESSE TEMPLATE POR SUA CONTA E RISCO<<. Os desenvolvedores e colaboradores deste template não se responsabilizam pelo resultado do uso deste template e se eximem de qualquer responsabilidade.
-
-%###################################################
-
 %% Identificação e modificações
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{utfpr}[2021/10/28 v2.0]
 
-% \ProvidesClass{utfprpb}[2020/05/10 v1.0]
-%% -- Criação dos arquivos constituintes deste projeto.
+% Support for PDF/A that must be configured before any text is output
+%
+\pdfminorversion=7
+\PassOptionsToPackage{pdfa}{hyperref}
+\usepackage{colorprofiles}
 
 %% luiz
 % Configure line spacing
@@ -1654,3 +1617,81 @@
 % Referências: https://www.physicsread.com/latex-floor-symbol/
 %
 \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+
+
+% Print list of tables, figures and so on if required
+%
+\RequirePackage{totalcount}
+\DeclareTotalCounter{figure}
+\DeclareTotalCounter{table}
+\DeclareTotalCounter{lstlisting}
+\DeclareTotalCounter{graph}
+\DeclareTotalCounter{photograph}
+\DeclareTotalCounter{tabframed}
+\DeclareTotalCounter{sourcecode}
+
+\let\oldlistoffigures\listoffigures
+\renewcommand{\listoffigures}{
+    \iftotalfigures
+        \oldlistoffigures
+    \fi
+}
+\let\oldincluirlistadeilustracoes\incluirlistadeilustracoes
+\renewcommand{\incluirlistadeilustracoes}{
+    \iftotalfigures
+        \oldincluirlistadeilustracoes
+    \fi
+}
+
+\let\oldincluirlistadegraficos\incluirlistadegraficos
+\renewcommand{\incluirlistadegraficos}{
+    \iftotalgraphs
+        \oldincluirlistadegraficos
+    \fi
+}
+
+\let\oldincluirlistadefotografias\incluirlistadefotografias
+\renewcommand{\incluirlistadefotografias}{
+    \iftotalphotographs
+        \oldincluirlistadefotografias
+    \fi
+}
+
+\let\oldlistoftables\listoftables
+\renewcommand{\listoftables}{
+    \iftotaltables
+        \oldlistoftables
+    \fi
+}
+\let\oldincluirlistadetabelas\incluirlistadetabelas
+\renewcommand{\incluirlistadetabelas}{
+    \iftotaltables
+        \oldincluirlistadetabelas
+    \fi
+}
+
+\let\oldincluirlistadequadros\incluirlistadequadros
+\renewcommand{\incluirlistadequadros}{
+    \iftotaltabframeds
+        \oldincluirlistadequadros
+    \fi
+}
+
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{
+    \iftotallstlistings
+        \oldlstlistoflistings
+    \fi
+}
+
+\def\oldincluirlistadecodigosfonte\incluirlistadecodigosfonte%
+\renewcommand{\incluirlistadecodigosfonte}{
+    \iftotalsourcecodes
+        \oldincluirlistadecodigosfonte
+    \fi
+}%
+% Configure PDF/A file following instructions from https://webpages.tuni.fi/latex/pdfa-guide.pdf
+% You can validate the generate file with https://www.pdf2go.com/validate-pdfa
+%
+\usepackage[a-3b,mathxmp]{pdfx}
+\hypersetup{pdfstartview=}

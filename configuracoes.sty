@@ -1,21 +1,3 @@
-%%%% configuracoes.tex, 2022/05/02, 2.4a
-
-%% ####################################################
-%%
-%% >> Atenção - Leia isso antes de usar esse template<< 
-%%
-%% Esse template foi desenvolvido por professores,  com a intenção de ajudar os alunos com as entregas na biblioteca. Não há uma equipe especializada e dedicada mantendo tal template, mas sim professores trabalhando além das suas funções básicas, que são: ensino, pesquisa e extensão.
-%
-%% Também os mantenedores deste template não são especializados em LaTeX, muito menos em normas da ABNT. Todos que contribuíram com o template fizeram isso visando deixá-lo o mais próximo possível das normas da ABNT e das regras, anseios e expectativas da biblioteca da UTFPR. É muito importante entender que os desenvolvedores do template não têm relação direta com a biblioteca ou com a ABNT. Ou seja, não são os desenvolvedores do template que ditam as regras e normas dos textos que devem ser entregues à biblioteca.
-
-%%É válido informar também, que como não há uma equipe dedicada e especializada, o tempo para colaborar com o template é curto. Desta forma, pode ser que não sejam empregadas as melhores técnicas, métodos e ferramentas para o desenvolvimento do template. Também pode acontecer do template não atender completamente todos os anseios e exigências da ABNT e da biblioteca, pois por exemplo, muitas regras de redação possuem questões interpretativas. Assim, o template sempre estará em contínua evolução e seria extremamente interessante que as pessoas (alunos,  professores,  técnicos e entusiastas) colaborarem com a evolução do template. Toda ajuda será bem vinda! Isso pode ser feito enviando e-mail para os desenvolvedores, desta forma, assim que possível esses vão tentar melhorar o template.
-
-%%O template é apenas mais uma ferramenta para o desenvolvimento de trabalhos para a biblioteca. Todavia, podem existir outros templates LaTeX. Assim como há templates em outros formatos, que não o LaTeX. O mais importante é que qualquer pessoa, utilizando a princípio qualquer ferramenta, pode desenvolver textos que atendem os requisitos da biblioteca apenas estudando, interpretando e seguindo as regras da UTFPR e da ABNT, que estão disponíveis na página Web da instituição. O template é só um facilitador.
-
-%%Por fim,  é necessário entender que infelizmente o ambiente LaTeX pode ser complexo e gerar resultados distintos dependendo do: sistema operacional,  pacotes LaTeX utilizados,  configurações alteradas, editor utilizado, a forma que está sendo redigida textos, figuras,  etc. Assim não há como garantir que o resultado final será o esperado.  Dito tudo isso,  >>UTILIZE ESSE TEMPLATE POR SUA CONTA E RISCO<<. Os desenvolvedores e colaboradores deste template não se responsabilizam pelo resultado do uso deste template e se eximem de qualquer responsabilidade.
-
-%###################################################
-
 %% Pacotes carregados nas classes:
 %%   memoir: abstract, appendix, array, booktabs, ccaption, chngcntr, chngpage, dcolumn, delarray, enumerate, epigraph, framed,
 %%           ifmtarg, ifpdf, index, makeidx, moreverb, needspace, newﬁle, nextpage, parskip, patchcmd, setspace, shortvrb, showidx,
@@ -150,3 +132,81 @@
 % Luiz - configurar a margem dos itens
 \setlength{\leftmargini}{1.5cm}
 \setlength{\leftmarginii}{1.5cm}
+
+\newcommand{\ac}[1]{\gls{#1}}
+
+% Macro used for works in English
+% \newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
+\newcommand\foreign[1]{\textit{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References to floats
+%
+\RequirePackage[capitalise]{cleveref}
+\@ifpackageloaded{cleveref}{
+	\crefname{chapter}{Chapter}{Chapters}
+	\Crefname{chapter}{Chapter}{Chapters}
+	\crefname{section}{Section}{Sections}
+	\Crefname{section}{Section}{Sections}
+	\crefname{line}{Line}{Lines}
+	\Crefname{line}{Line}{Lines}
+	\crefname{table}{Table}{Tables}
+	\Crefname{table}{Table}{Tables}
+	\crefname{figure}{Figure}{Figures}
+	\Crefname{figure}{Figure}{Figures}
+	\crefname{subfigure}{Figure}{Figures}
+	\Crefname{subfigure}{Figure}{Figures}
+	\crefname{equation}{Equation}{Equations}
+	\Crefname{equation}{Equation}{Equations}
+	\crefname{lstlisting}{Listing}{Listings}
+	\Crefname{lstlisting}{Listing}{Listings}
+	\crefname{lstnumber}{Line}{Lines}
+	\Crefname{lstnumber}{Line}{Lines}
+	\crefname{appendix}{Appendix}{Appendices}
+	\Crefname{appendix}{Appendix}{Appendices}
+	\crefrangelabelformat{chapter}{#3#1#4~to~#5#2#6}
+	\crefrangelabelformat{section}{#3#1#4~to~#5#2#6}
+	\iflanguage{brazil}{%
+		\crefname{chapter}{Cap\'itulo}{Cap\'itulos}
+		\Crefname{chapter}{Cap\'itulo}{Cap\'itulos}
+		\crefname{section}{Se\c{c}\~ao}{Se\c{c}\~oes}
+		\Crefname{section}{Se\c{c}\~ao}{Se\c{c}\~oes}
+		\crefname{line}{Linha}{Linhas}
+		\Crefname{line}{Linha}{Linhas}
+		\crefname{table}{Tabela}{Tabelas}
+		\Crefname{table}{Tabela}{Tabelas}
+		\crefname{figure}{Figura}{Figuras}
+		\crefname{figure}{Figura}{Figuras}
+		\Crefname{figure}{Figura}{Figuras}
+		\crefname{subfigure}{Figura}{Figuras}
+		\Crefname{subfigure}{Figura}{Figuras}
+		\crefname{equation}{Equa\c{c}\~ao}{Equa\c{c}\~oes}
+		\Crefname{equation}{Equa\c{c}\~ao}{Equa\c{c}\~oes}
+		\crefname{listing}{C\'odigo-fonte}{C\'odigos-fonte}
+		\Crefname{listing}{C\'odigo-fonte}{C\'odigos-fonte}
+		\crefname{lstlisting}{C\'odigo-fonte}{C\'odigos-fonte}
+		\Crefname{lstlisting}{C\'odigo-fonte}{C\'odigos-fonte}
+		\crefname{lstnumber}{Linha}{Linhas}
+		\Crefname{lstnumber}{Linha}{Linhas}
+		\crefname{appendix}{Ap\^endice}{Ap\^endices}
+		\Crefname{appendix}{Ap\^endice}{Ap\^endices}
+		\crefrangelabelformat{chapter}{#3#1#4~a~#5#2#6}
+		\crefrangelabelformat{section}{#3#1#4~a~#5#2#6}
+		
+		% The commands all take five arguments: the cross-reference type, the format
+		% for the first cross-reference in a list, the format for the second
+		% cross-reference in a list of two, the format for the middle cross-references
+		% in a list of more than two, and the format for the last cross-reference in
+		% a list of more than two.
+		\newcommand{\crefrangeconjunction}{ e }
+		\newcommand{\crefpairconjunction}{ e }
+		\newcommand{\crefmiddleconjunction}{, }
+		\newcommand{\creflastconjunction}{ e }
+		\crefmultiformat{ type }{ first }{ second }{ middle }{ last }
+		\Crefmultiformat{ type }{ first }{ second }{ middle }{ last }
+		\crefrangemultiformat{ type }{ first }{ second }{ middle }{ last }
+		\Crefrangemultiformat{ type }{ first }{ second }{ middle }{ last }
+	}{}
+}
+{}
+

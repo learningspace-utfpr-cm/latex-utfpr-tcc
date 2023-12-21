@@ -1621,11 +1621,7 @@
 
 % Print list of tables, figures and so on if required
 %
-\RequirePackage{totalcount}
-\DeclareTotalCounter{figure}
-\DeclareTotalCounter{table}
-\DeclareTotalCounter{lstlisting}
-\DeclareTotalCounter{graph}
+\RequirePackage[figure,table,lstlisting]{totalcount}\DeclareTotalCounter{graph}
 \DeclareTotalCounter{photograph}
 \DeclareTotalCounter{tabframed}
 \DeclareTotalCounter{sourcecode}

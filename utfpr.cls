@@ -1619,24 +1619,19 @@
 \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
 
 
-% Print list of tables, figures and so on if required
+% % Print list of tables, figures and so on if required
 %
-\RequirePackage[figure,table,lstlisting]{totalcount}\DeclareTotalCounter{graph}
+\RequirePackage[figure,table,lstlisting]{totalcount}
+\DeclareTotalCounter{graph}
 \DeclareTotalCounter{photograph}
 \DeclareTotalCounter{tabframed}
 \DeclareTotalCounter{sourcecode}
 
-\let\oldlistoffigures\listoffigures
-\renewcommand{\listoffigures}{
-    \iftotalfigures
-        \oldlistoffigures
-    \fi
-}
-\let\oldincluirlistadeilustracoes\incluirlistadeilustracoes
-\renewcommand{\incluirlistadeilustracoes}{
-    \iftotalfigures
-        \oldincluirlistadeilustracoes
-    \fi
+\let\oldincluirlistadeilustracoes\incluirlistadeilustracoes%
+\renewcommand{\incluirlistadeilustracoes}{%
+    \iftotalfigures%
+        \oldincluirlistadeilustracoes%
+    \fi%
 }
 
 \let\oldincluirlistadegraficos\incluirlistadegraficos
@@ -1653,12 +1648,6 @@
     \fi
 }
 
-\let\oldlistoftables\listoftables
-\renewcommand{\listoftables}{
-    \iftotaltables
-        \oldlistoftables
-    \fi
-}
 \let\oldincluirlistadetabelas\incluirlistadetabelas
 \renewcommand{\incluirlistadetabelas}{
     \iftotaltables
@@ -1673,19 +1662,14 @@
     \fi
 }
 
-\let\oldlstlistoflistings\lstlistoflistings
-\renewcommand{\lstlistoflistings}{
-    \iftotallstlistings
-        \oldlstlistoflistings
-    \fi
-}
-
 \def\oldincluirlistadecodigosfonte\incluirlistadecodigosfonte%
 \renewcommand{\incluirlistadecodigosfonte}{
     \iftotalsourcecodes
         \oldincluirlistadecodigosfonte
     \fi
 }%
+
+
 % Configure PDF/A file following instructions from https://webpages.tuni.fi/latex/pdfa-guide.pdf
 % You can validate the generate file with https://www.pdf2go.com/validate-pdfa
 %

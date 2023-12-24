@@ -211,6 +211,18 @@
 }
 {}
 
+% CSV language for listings
+\lstdefinelanguage{csv}{
+    basicstyle=\normalfont\scriptsize,
+    numbers=left,
+    numberstyle=\scriptsize,
+    numbersep=8pt,
+    breaklines,
+    frame=lines,
+    literate=
+        {;}{{;\allowbreak}}1
+        {,}{{,\allowbreak}}1
+}
 
 % JSON style, as defined at https://tex.stackexchange.com/a/433961
 %

@@ -138,6 +138,7 @@
 % Macro used for works in English
 % \newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
 \newcommand\foreign[1]{\textit{#1}}
+\newcommand{\ew}[1]{\textit{\foreignlanguage{english}{#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References to floats
@@ -199,7 +200,7 @@
 		% cross-reference in a list of two, the format for the middle cross-references
 		% in a list of more than two, and the format for the last cross-reference in
 		% a list of more than two.
-		\newcommand{\crefrangeconjunction}{ e }
+		\newcommand{\crefrangeconjunction}{ à }
 		\newcommand{\crefpairconjunction}{ e }
 		\newcommand{\crefmiddleconjunction}{, }
 		\newcommand{\creflastconjunction}{ e }
@@ -258,3 +259,5 @@
          {8}{{{\color{numb}8}}}{1}
          {9}{{{\color{numb}9}}}{1}
 }
+
+\usepackage{csquotes}

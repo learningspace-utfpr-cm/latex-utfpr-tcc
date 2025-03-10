@@ -70,18 +70,10 @@
 
 %% Pacotes carregados
 \RequirePackage[utf8]{inputenc}%% Codificações de entrada: unix - latin1/utf8; windows - ansinew; Mac - applemax; DOS-OS/2 - cp850
-\ifpdf%% Compilação com pdflatex
-  \RequirePackage{cmap}%% Busca e cópia em arquivos PDF
-  \RequirePackage{ae}%% Fontes virtuais para codificação de fontes T1
-  \RequirePackage[pdftex]{graphics}%% Padrão gráfico de figuras
-  \RequirePackage[pdftex]{graphicx}%% Aperfeiçoamentos do padrão gráfico de figuras
-\else%% Compilação com latex
-  \RequirePackage[T1]{fontenc}%% Codificação de fontes T1
-  \RequirePackage{epic, eepic}%% Aperfeiçoamentos e extensões do ambiente figure
-  \RequirePackage[dvips]{epsfig}%% Emulação de figuras (e)ps
-  \RequirePackage[dvips]{graphics}%% Padrão gráfico de figuras
-  \RequirePackage[dvips]{graphicx}%% Aperfeiçoamentos do padrão gráfico de figuras
-\fi
+\RequirePackage{cmap}%% Busca e cópia em arquivos PDF
+\RequirePackage{ae}%% Fontes virtuais para codificação de fontes T1
+% \RequirePackage[pdftex]{graphicx}%% Aperfeiçoamentos do padrão gráfico de figuras
+
 \RequirePackage{fix-cm}%% Fontes "Computer Modern" em tamanhos arbitrários
 \RequirePackage{hyphenat}%% Hifenização de palavras
 %luiz:
@@ -651,7 +643,7 @@
 			\large\textbf{\allcaps{\@university}}\\
 			% \large\allcaps{\@universitycampus}\\
 			% \large\allcaps{\@universityunit}\\
-			\ifthenelse{\equal{Mestrado}{\degree{}}}{\large\allcaps{\@program}}
+			\ifthenelse{\equal{Mestrado}{\@degreetype}}{\large\allcaps{\@program}}{}
             \par	
 		}
 		%\vspace{56pt}
@@ -691,7 +683,7 @@
 }
 
 \renewcommand{\@goalfulltext}{
-    \ifthenelse{\equal{Mestrado}{\degree{}}}{
+    \ifthenelse{\equal{Mestrado}{\@degreetype}}{
     	\@goal{} apresentado como requisito para obtenção do título de \@degree{}
         em \@degreearea{} do \@program{} da \@university{}.
     }{
@@ -854,22 +846,21 @@
 			\large\textbf{\allcaps{\@author}}\\
 		\end{center}
 		%\vspace{30mm}
-		\vspace{15mm}
+		\vfill
 		\begin{center}
 			\large\textbf{\allcaps{\@title}}\par
 		\end{center}
 		%\vspace{60pt}
-		\vspace{10mm}
-		\hfill\begin{minipage}{.5\textwidth}
+		\vfill
+		\hfill\begin{minipage}{.51\textwidth}
 				\singlespacing
 				\hyphenpenalty=10000
 				\@goalfulltext\par
 		\end{minipage}
-		%\vspace{15mm}
 		\vspace{10mm}
 		\begin{center}
 		    {\large Data de aprovação: \@approvaldate}
-		    \vspace{0,6cm}
+		    \vspace{0.3cm}
 		    \printevalboard
 		\end{center}
 		\vfill
@@ -1417,6 +1408,7 @@
 \setlength{\bibitemsep}{0.1\linha}%% Espaçamento entre itens da lista de referências
 
 %% Glossário
+\renewcommand{\glossarysection}[2][]{}
 \renewcommand*{\glsseeformat}[3][\seename]{{#1}\space\glsseelist{#2}.}%% Formatação do texto "veja..." no glossário
 \newcommand{\incluirglossario}{%% Definição do comando para inclusão do glossário
   \setlength{\glstreeindent}{\parindent}%% Recuo dos itens do glossário

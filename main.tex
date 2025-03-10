@@ -1,3 +1,19 @@
+% \DocumentMetadata{
+%     lang=en,
+%     testphase={
+%         phase-III,
+%         math,
+%         table,
+%         title,
+%         firstaid
+%      },
+%     pdfversion=1.7,
+% %    pdfversion=2.0,
+%     pdfstandard=ua-1
+% %   pdfstandard=ua-2,
+% }
+% % \includegraphics[alt={this shows a yellow duck}]{duckimage}
+% %
 \documentclass[%% Opções
 %% -- Opções da classe memoir --
   12pt,%% Tamanho da fonte: 10pt, 11pt, 12pt, etc.
@@ -28,12 +44,19 @@
   brazil,%% Idioma principal do documento (último da lista)
 ]{utfpr}%% Classe utfpr
 
+% \tagpdfsetup{table/header-rows={1}}
+% % If a table should not be tagged as table, for example, because it is merely used to ensure that the content is properly aligned, it should be turned into a presentation table with
+% % \tagpdfsetup{table/tagging=presentation}
+
+% %\tagpdfsetup{math/mathml/write-dummy}
+
 % Este comando não tem função (o modelo já configura a codificação). Ele existe
 % apenas para permitir que latex2rtf descobra facilmente a codificação do texto.
 %
 \usepackage[utf8]{inputenc}
 
 \usepackage{configuracoes}
+
 
 %% Arquivo de dados do modelo de documento LaTeX para produção de trabalhos acadêmicos da UTFPR
 \input{./variaveis}%% Realize as modificações pertinentes no arquivo "utfprpb-dados.tex"
@@ -49,6 +72,8 @@
 %% Ferramenta para criação de nomenclaturas
 \makenomenclature%% Não comente esta linha
 
+
+
 %% Início do documento
 \begin{document}%% Não comente esta linha
 
@@ -59,7 +84,7 @@
 \coverpageone
 \coverpagetwo
 
-% Folha de aprovação
+% Folha de aprovação (apenas para trabalho de conclusão, não é necessário para TCC1 ou qualificação)
 \approvalpage
 %\includepdf[scale=1.0,pages=1]{./pre-texto/folha-aprovacao.pdf} % para adicionar o pdf enviado pelo professor apenas substitua o documento folha-aprovacao.pdf dentro da pasta PreTexto
 
@@ -112,22 +137,22 @@
 \textual
 
 %% Capítulo introdução - obrigatório
-\include{./main/1-introducao}%% Comente para remover este item
+% \include{./texto/1-introducao}%% Comente para remover este item
 
 %% Capítulo
-\include{./main/2-conceitos}%% Comente para remover este item
+% \include{./texto/2-conceitos}%% Comente para remover este item
 
 %% Capítulo
-\include{./main/3-proposta}%% Comente para remover este item
+% \include{./texto/3-proposta}%% Comente para remover este item
 
 %% Capítulo
-\include{./main/4-metodo}%% Comente para remover este item
+% \include{./texto/4-metodo}%% Comente para remover este item
 
 %% Capítulo
-\include{./main/5-resultados}%% Comente para remover este item
+% \include{./texto/5-resultados}%% Comente para remover este item
 
 %% Capítulo
-\include{./main/6-conclusoes}%% Comente para remover este item
+% \include{./texto/6-conclusoes}%% Comente para remover este item
 
 %% Capítulos após este comando criam marcadores do pdf na raiz
 % \phantompart%% Comente para remover este item
@@ -137,7 +162,7 @@
 \postextual
 
 % Arquivos bibtex sem a extensão .bib e separados por vírgula (obrigatório)
-\arquivosdereferencias{main,crossrefs}
+\arquivosdereferencias{main-strings,main,main-crossrefs}
 
 % Glossário (opcional)
 % \incluirglossario

@@ -1587,7 +1587,9 @@
 % Command to underline the text
 \newcommand{\underln}[1]{$\underline{\text{#1}}$}
 
- \renewcommand*{\l@section}[2]
+\usepackage{mfirstuc} % load the mfirstuc package
+\DeclareRobustCommand{\xmakefirstuc}[1]{\makefirstuc{#1}} % define the \xmakefirstuc command
+\renewcommand*{\l@section}[2]
  {% luiz - o xmakefirstuc está funcionando, todavia a primeira coisa que vem é o número... e depois o texto, então ele não deixa a primeira letra maiúscula por causa disso... tem que ver como resolver
      \l@chapapp{\ABNTEXsectionfont\xmakefirstuc{#1}}{#2}{\cftsectionname}
  }

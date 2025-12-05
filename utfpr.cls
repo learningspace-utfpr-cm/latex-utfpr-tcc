@@ -547,6 +547,9 @@
 \RequirePackage{lastpage}
 \RequirePackage{chngpage}
 
+\def\email#1{\gdef\@email{#1}}%
+\def\@email{\@latex@error{No \noexpand\email given}\@ehc}%
+
 \def\authorbib#1{\gdef\@authorbib{#1}}%
 \def\@authorbib{\@latex@error{No \noexpand\authorbib given}\@ehc}%
 
@@ -693,6 +696,7 @@
     }
 }
 
+
 % Creative Commons
 \RequirePackage[scale=2]{ccicons}
 
@@ -794,7 +798,7 @@
 			\textbf{\allcaps{\@address}}\par
 			\textbf{\@depositshortdate}\par
 			\vspace{1cm}
-			\printlicense{\@licenca}
+			\ifthenelse{\equal{\@documenttype}{Monografia}}{\printlicense{\@licenca}}{}%
 		\end{center}
 	\end{adjustwidth}
 }
@@ -904,7 +908,6 @@
   \end{epigrafeoriginal}
   \cleardoublepage%% Página de verso
 }
-
 %% Resumo
 \AtBeginDocument{%% Definições carregadas no início do documento
   \renewcommand{\abstracttextfont}{\normalfont\normalsize}%% Fonte do texto do resumo
@@ -916,13 +919,17 @@
 }
 \newenvironment{resumoutfpr}{%% Formatação do ambiente resumoutfpr
   \begin{resumo}%% Ambiente resumo
+    \vspace{1cm}
     \begin{Spacing}{1.0}%% Espaçamento simples entre linhas
-      \begin{flushleft}%% Alinhamento à esquerda
-      \end{flushleft}
-      %\singlespacing
+    \@authorbib{}. \@title{}. \@depositshortdate{}. \@documenttype{} (\@degree{} -- \@program{}), \@university{},
+	\@address{}, \@depositshortdate{}.
+    \null
+    \vspace{1cm}
+    
 }{%%
-      \\
-      \par\textbf{\nomepalavraschave:}
+      \vspace{.5cm}
+      \par\null
+      \textbf{\nomepalavraschave:}
       \ifthenelse{\imprimirnumerodepalavraschave > 0}{\imprimirpalavrachavea}{}%%
       \ifthenelse{\imprimirnumerodepalavraschave > 1}{; \imprimirpalavrachaveb}{}%%
       \ifthenelse{\imprimirnumerodepalavraschave > 2}{; \imprimirpalavrachavec}{}%%
@@ -936,13 +943,17 @@
 %% Abstract
 \newenvironment{abstractutfpr}{%% Formatação do ambiente abstractutfpr
   \begin{resumo}[\nomeabstract]%% Ambiente resumo (abstract)
+    \vspace{1cm}
     \begin{Spacing}{1.0}%% Espaçamento simples entre linhas
-      \begin{flushleft}%% Alinhamento à esquerda
-      \end{flushleft}
-      %\singlespacing
+    \@authorbib{}. \@titleen{}. \@depositshortdate{}. \@documenttypeen{} (\@degreeen{} -- \@programen{}), \@universityen{}.
+	\@addressen{}, \@depositshortdate{}.
+    \null
+    \vspace{1cm}
+
 }{%%
-      \\
-      \par\textbf{\nomekeywords:}
+      \vspace{.5cm}
+      \par\null
+      \textbf{\nomekeywords:}
       \ifthenelse{\imprimirnumerodekeywords > 0}{\imprimirkeyworda}{}%%
       \ifthenelse{\imprimirnumerodekeywords > 1}{; \imprimirkeywordb}{}%%
       \ifthenelse{\imprimirnumerodekeywords > 2}{; \imprimirkeywordc}{}%%
@@ -952,6 +963,8 @@
     \end{Spacing}
   \end{resumo}
 }
+
+
 
 %% Lista de algoritmos
 \newlistof{listofalgorithms}{loa}{\listalgorithmname}%% Lista de objetos flutuantes (algoritmos)
@@ -1669,3 +1682,19 @@
 %
 \usepackage[a-3b,mathxmp]{pdfx}
 \hypersetup{pdfstartview=}
+
+\RequirePackage{verbatim}
+\AtBeginDocument{%% Definições carregadas no início do documento
+  \ifthenelse{\equal{\@documenttype}{Monografia}}%
+    {}%
+    {%
+        %
+        \renewcommand{\makeindex}{}%
+%        \renewcommand{\makeglossaries}{\makenoidxglossaries}
+        \renewcommand{\makenomenclature}{}%
+        \renewenvironment{dedicatoria}{\comment}{\endcomment}%
+        \renewenvironment{agradecimentos}{\comment}{\endcomment}%
+        \renewenvironment{epigrafe}{\comment}{\endcomment}%
+        \AfterEndEnvironment{abstractutfpr}{\stop}
+    }% 
+}

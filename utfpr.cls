@@ -686,9 +686,14 @@
 }
 
 \renewcommand{\@goalfulltext}{
-    \ifthenelse{\equal{Mestrado}{\@degreetype}}{
-    	\@goal{} apresentado como requisito para obtenção do título de \@degree{}
-        em \@degreearea{} do \@program{} da \@university{}.
+    \ifthenelse{\equal{Mestrado}{\@degreetype}\or\equal{Doutorado}{\@degreetype}}{
+        \ifthenelse{\equal{\imprimirtipodedocumento}{Tese}\or\equal{\imprimirtipodedocumento}{Dissertação}}{
+    	   \@goal{} apresentada como requisito para obtenção do título de \@degree{}
+            em \@degreearea{} do \@program{} da \@university{}.
+        }{ % Trabalho de Projeto de Pesquisa
+    	   \@goal{} apresentado como requisito para obtenção do título de \@degree{}
+            em \@degreearea{} do \@program{} da \@university{}.
+        }
     }{
     	\@goal{} apresentado à disciplina de \@course, do \@program{} do \@universityunit{}
         da \@university{}, como requisito parcial para obtenção do título de \@degree{}
